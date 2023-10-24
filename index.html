@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello Caching World!</title>
+Listing 3.1 Simple HTML page that registers a Service Worker file Service Worker install
+
+Page Service Worker Server
+Figure 3.3 During the Service Worker installation step, you can fetch resources and prime the cache
+for the next visit.
+
+The basics of caching Service Worker caching 35
+
+</head>
+<body>
+<!-- Image -->
+<img src="/images/hello.png" />
+<!-- JavaScript -->
+<script async src="/js/script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+
+navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+
+// Registration was successful
+console.log('ServiceWorker registration successful with scope: ',
+registration.scope);
+}).catch(function(err) {
+// registration failed :(
+console.log('ServiceWorker registration failed: ', err);
+});
+}
+</script>
+</body>
+</html>
